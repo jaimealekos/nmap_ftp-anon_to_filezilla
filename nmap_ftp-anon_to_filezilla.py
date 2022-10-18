@@ -47,7 +47,7 @@ def nmap_ftpanon_extractor(nmapXml):
                                     foundports.append(savePort)
     return foundports
 
-def fzFtp(ipHost): # takes "ip:port" or "ip:port reversedns" and returns fz xml object
+def fzFtp(ipHost): # takes "ip:port" or "ip:port reversedns" and returns fz ftp xml object
     ftp=("            <Server>\n")
     ftp+=("					<Host>"+ipHost.split(" ")[0].split(":")[0]+"</Host>\n")
     ftp+=("					<Port>"+ipHost.split(" ")[0].split(":")[1]+"</Port>\n")
@@ -66,7 +66,7 @@ def fzFtp(ipHost): # takes "ip:port" or "ip:port reversedns" and returns fz xml 
     ftp+=("				</Server>\n")    
     return ftp
 
-def fzFolder(folderName, ftps):
+def fzFolder(folderName, ftps): # takes foldername and an array of ftps in "ip:port" or "ip:port reversedns" format and returns fz xml folder with them
     folder=("	    <Folder expanded=\"1\">"+folderName+"\n")    
     for ftp in ftps: folder+=fzFtp(ftp[0])
     folder+=("	    </Folder>\n")
