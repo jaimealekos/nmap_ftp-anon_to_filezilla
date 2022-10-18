@@ -3,7 +3,7 @@
 import argparse
 from xml.etree import ElementTree
 
-# Takes ftp-anon positve results from a nmap -oX file and writes a FileZilla sites xml with them
+# Takes ftp-anon positve results from a nmap -oX file and writes a FileZilla xml sites file with them
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--nmapxml', type=str, required=True, help="path+filename of nmap xml results source file")
